@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Invitación de Boda</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tipografías -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      background: radial-gradient(circle at top, #f7f4ef, #ece6dc);
+      font-family: 'Playfair Display', serif;
+      overflow: hidden;
+    }
+
+    /* ---------- INTRO ---------- */
+    .intro {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");
+      z-index: 10;
+    }
+
+    .hint {
+      position: absolute;
+      bottom: 12%;
+      font-size: 14px;
+      letter-spacing: 1px;
+      opacity: 0.6;
+    }
+
+    /* ---------- SOBRE ---------- */
+    .envelope {
+      position: relative;
+      cursor: pointer;
+      perspective: 600px;
+    }
+
+    .envelope img {
+      width: 100%;
+      display: block;
+      border-radius: 6px;
+      box-shadow: 0 25px 40px rgba(0,0,0,0.15);
+    }
+
+    /* Solapa acuarela */
+    .flap {
+      position: absolute;
+      top: 5px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("sobre2.png") center / cover no-repeat;
+      transform-origin: top center;
+      transition: transform 1.4s ease;
+      z-index: 5;
+      filter: drop-shadow(0 3px 3px rgba(0,0,0,0.1));
+    }
+
+  
+
+    /* Estado abierto */
+    .envelope.open .flap {
+      transform: rotateX(180deg);
+    }
+
+    .envelope.open .seal {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.8);
+    }
+
+    /* ---------- CONTENIDO ---------- */
+    .content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      opacity: 0;
+      transition: opacity 2s ease;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .content.show {
+      opacity: 1;
+    }
+
+    .content h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 64px;
+      margin: 0;
+    }
+
+    .content p {
+      margin-top: 10px;
+      font-size: 18px;
+      letter-spacing: 1px;
+    }
+
+    .watercolor {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle at center, rgba(200,170,150,0.25), transparent 70%);
+      filter: blur(40px);
+      z-index: -1;
+    }
+
+    @media (max-width: 600px) {
+      .content h1 {
+        font-size: 48px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- INTRO -->
+  <div class="intro" id="intro">
+    <div class="envelope" id="envelope">
+      <img src="sobre1.png" alt="Sobre de boda">
+      <div class="flap"></div>
+      <div class="seal"></div>
+    </div>
+    <div class="hint">Haz clic para abrir</div>
+  </div>
+
+  <!-- CONTENIDO -->
+  <div class="content" id="content">
+    <div class="watercolor"></div>
+    <h1>María & Juan</h1>
+    <p>12 · Julio · 2026</p>
+    <p>Nos encantaría compartir este día contigo</p>
+  </div>
+
+  <!-- MÚSICA -->
+  <audio id="music" src="musica.mp3" preload="auto"></audio>
+
+  <script>
+    const envelope = document.getElementById("envelope");
+    const intro = document.getElementById("intro");
+    const content = document.getElementById("content");
+    const music = document.getElementById("music");
+
+    envelope.addEventListener("click", () => {
+      envelope.classList.add("open");
+
+      music.volume = 0.4;
+      music.play();
+
+      setTimeout(() => {
+        intro.style.display = "none";
+        content.classList.add("show");
+      }, 1400);
+    });
+  </script>
+
+</body>
+</html>
