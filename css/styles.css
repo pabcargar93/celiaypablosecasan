@@ -33,7 +33,6 @@ body {
   pointer-events: none;
 }
 
-
 /* ---------- SOBRE ---------- */
 .envelope {
   position: relative;
@@ -56,11 +55,26 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("../assets/images/solapasuperior.png") center / cover no-repeat;
+  background: url("../assets/images/solapasuperior.png") center / cover
+    no-repeat;
   transform-origin: top center;
   transition: transform 1.4s ease;
   z-index: 5;
   filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.1));
+}
+
+/* La imagen de cabecera */
+.img-head {
+  width: 100%; /* Ocupa todo el ancho para permitir el centrado */
+  margin-top: 0; /* Pegada arriba */
+  line-height: 0; /* Elimina espacios extra debajo */
+}
+
+.img-head img {
+  width: 50%;        /* Tu ancho deseado */
+  height: auto;
+  display: block;    /* Importante para eliminar espacios y permitir márgenes */
+  margin: 0 auto;    /* ESTO ES LO QUE LA CENTRA HORIZONTALMENTE */
 }
 
 /* Sello centrado */
@@ -142,12 +156,12 @@ body {
   position: absolute;
   inset: 0;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   opacity: 0;
   transition: opacity 2s ease;
   text-align: center;
+  align-items: center;
   padding: 20px;
 }
 
@@ -191,7 +205,6 @@ body {
   transform: translate(-50%, -50%) rotateX(0deg);
   opacity: 1;
 }
-
 
 @media (max-width: 600px) {
   .content h1 {
