@@ -1,82 +1,211 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <title>Celia & Pablo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <title>Celia & Pablo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link href="css/styles.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet" />
 
-  <!-- Tipografías -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Great+Vibes&display=swap" rel="stylesheet">
+    <!-- Tipografías -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
 
-  <style>
-    
-  </style>
-</head>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/corazones.png" />
 
-<body>
+    <style></style>
+  </head>
 
-  <!-- INTRO -->
-  <div class="intro" id="intro">
-    <div class="envelope" id="envelope">
-      <img src="assets/images/sin-solapa.png" alt="Sobre de boda">
-      <div class="flap"></div>
-      <!-- Sello centrado -->
-      <div class="seal">
-        <img src="assets/images/sello-2.png" alt="Sello">
+  <body>
+    <!-- INTRO -->
+    <div class="intro" id="intro">
+      <div class="envelope" id="envelope">
+        <img src="assets/images/sin-solapa.png" alt="Sobre de boda" />
+        <div class="flap"></div>
+        <!-- Sello centrado -->
+        <div class="seal">
+          <img src="assets/images/sello-2.png" alt="Sello" />
+        </div>
+        <!-- Tarjeta -->
+        <div class="card" id="card">
+          <img
+            src="assets/images/foto-tarjeta.jpeg"
+            alt="Foto"
+            class="card-photo"
+          />
+          <h2>¡Nos casamos!</h2>
+          <p>3 · Octubre · 2026</p>
+          <p>Arcos de la Frontera</p>
+        </div>
       </div>
-      <!-- Tarjeta -->
-      <div class="card" id="card">
-        <img src="assets/images/foto-tarjeta.jpeg" alt="Foto" class="card-photo">
-        <h2>¡Nos casamos!</h2>
-        <p>3 · Octubre · 2026</p>
-        <p>Arcos de la Frontera</p>
-      </div>
+      <div class="hint">Haz clic para abrir</div>
     </div>
-    <div class="hint">Haz clic para abrir</div>
-  </div>
 
-  <!-- CONTENIDO -->
-  <div class="content" id="content">
-    <div class="watercolor"></div>
-    <div class="img-head">
-      <img src="assets/images/cabecera.png" />
+    <!-- CONTENIDO -->
+    <div class="content" id="content">
+      <!-- CABECERA -->
+      <header class="hero">
+        <div class="img-head">
+          <img src="assets/images/cabecera.png" alt="Celia y Pablo" />
+        </div>
+        <h1>Celia & Pablo</h1>
+        <div class="fecha-elegante">
+          <div class="mes">OCTUBRE</div>
+
+          <div class="centro">
+            <div class="lateral bordeado">SÁBADO</div>
+            <div class="numero">15</div>
+            <div class="lateral bordeado">12:00 H</div>
+          </div>
+
+          <div class="anio">2026</div>
+        </div>
+        <p class="place">Arcos de la Frontera</p>
+      </header>
+
+      <!-- CUENTA ATRÁS -->
+      <section class="section">
+        <h2>Cuenta atrás</h2>
+
+        <div class="countdown" id="countdown">
+          <div><span id="days">0</span><small>Días</small></div>
+          <div><span id="hours">0</span><small>Horas</small></div>
+          <div><span id="minutes">0</span><small>Min</small></div>
+          <div><span id="seconds">0</span><small>Seg</small></div>
+        </div>
+
+        <p class="section-text">
+          Cada día queda un poco menos para celebrar juntos uno de los días más
+          importantes de nuestras vidas.
+        </p>
+      </section>
+
+      <!-- MAPA -->
+      <section class="section alt">
+        <h2>Ubicación</h2>
+
+        <p class="section-text">Arcos de la Frontera, Cádiz</p>
+
+        <div class="map">
+          <iframe
+            src="https://www.google.com/maps?q=Arcos%20de%20la%20Frontera&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          >
+          </iframe>
+        </div>
+      </section>
+
+      <!-- ITINERARIO -->
+      <section class="section">
+        <h2>Itinerario</h2>
+
+        <ul class="timeline">
+          <li><strong>12:30</strong> · Ceremonia</li>
+          <li><strong>14:00</strong> · Cóctel</li>
+          <li><strong>15:30</strong> · Banquete</li>
+          <li><strong>18:30</strong> · Fiesta</li>
+        </ul>
+      </section>
+
+      <!-- ASISTENCIA -->
+      <section class="section alt">
+        <h2>Confirmar asistencia</h2>
+
+        <form class="rsvp">
+          <input type="text" placeholder="Nombre y apellidos" required />
+          <select required>
+            <option value="">¿Asistirás?</option>
+            <option>Sí</option>
+            <option>No</option>
+          </select>
+          <textarea
+            placeholder="Alergias, intolerancias o comentarios"
+          ></textarea>
+          <button type="submit">Enviar</button>
+        </form>
+      </section>
+
+      <!-- BUS -->
+      <section class="section">
+        <h2>Autobuses</h2>
+
+        <p class="section-text">Habrá dos paradas de autobús disponibles:</p>
+
+        <ul class="bus">
+          <li>📍 Parada 1 – Centro</li>
+          <li>📍 Parada 2 – Hotel</li>
+        </ul>
+      </section>
+
+      <!-- ÁLBUM -->
+      <section class="section alt">
+        <h2>Álbum de fotos</h2>
+
+        <p class="section-text">
+          Comparte con nosotros las fotos de este día tan especial.
+        </p>
+
+        <!-- <img src="assets/images/qr.png" alt="QR álbum" class="qr" /> -->
+
+        <a href="#" class="btn">Ir al álbum</a>
+      </section>
+
+      <!-- MÚSICA -->
+      <section class="section">
+        <h2>Canciones imprescindibles</h2>
+
+        <p class="section-text">¿Qué canción no puede faltar en la fiesta?</p>
+
+        <input
+          type="text"
+          placeholder="Escribe tu canción favorita"
+          class="music-input"
+        />
+      </section>
+
+      <!-- GALERÍA -->
+      <section class="section alt">
+        <h2>Nosotros</h2>
+
+        <div class="gallery">
+          <!-- <img src="assets/images/foto1.jpg" />
+          <img src="assets/images/foto2.jpg" />
+          <img src="assets/images/foto3.jpg" /> -->
+        </div>
+      </section>
     </div>
-    <h1>Celia & Pablo</h1>
-    <p>3 · octubre · 2026</p>
-    <p>Nos encantaría compartir este día contigo</p>
-  </div>
 
-  <!-- MÚSICA -->
-  <audio id="music" src="assets/audio/audio.mp3" preload="auto"></audio>
+    <!-- MÚSICA -->
+    <audio id="music" src="assets/audio/audio.mp3" preload="auto"></audio>
 
-  <script>
-    const envelope = document.getElementById("envelope");
-    const intro = document.getElementById("intro");
-    const content = document.getElementById("content");
-    const music = document.getElementById("music");
-    const hint = document.querySelector(".hint");
+    <script>
+      const envelope = document.getElementById("envelope");
+      const intro = document.getElementById("intro");
+      const content = document.getElementById("content");
+      const music = document.getElementById("music");
+      const hint = document.querySelector(".hint");
 
-    envelope.addEventListener("click", () => {
-      envelope.classList.add("open");
-      hint.classList.add("hide");
-      music.volume = 0.5;
-      music.play();
+      envelope.addEventListener("click", () => {
+        envelope.classList.add("open");
+        hint.classList.add("hide");
+        music.volume = 0.5;
+        music.play();
 
-      // Mostrar tarjeta después de abrir solapa
-      setTimeout(() => {
-        envelope.classList.add("show-card");
-
-        // Tras 2.5s, ocultar intro y mostrar contenido completo
+        // Mostrar tarjeta después de abrir solapa
         setTimeout(() => {
-          intro.style.display = "none";
-          content.classList.add("show");
-        }, 4000);
+          envelope.classList.add("show-card");
 
-      }, 900); // coincide con duración flap
-    });
-  </script>
-
-</body>
+          // Tras 2.5s, ocultar intro y mostrar contenido completo
+          setTimeout(() => {
+            intro.style.display = "none";
+            content.classList.add("show");
+          }, 4000);
+        }, 900); // coincide con duración flap
+      });
+    </script>
+  </body>
 </html>

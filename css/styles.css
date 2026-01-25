@@ -3,11 +3,10 @@
 }
 body {
   margin: 0;
-  height: 100vh;
+  min-height: 100vh;
   background: radial-gradient(circle at top, #f7f4ef, #ece6dc);
   font-family: "Playfair Display", serif;
-  overflow: hidden;
-}
+  overflow-x: hidden;
 
 /* ---------- INTRO ---------- */
 .intro {
@@ -64,10 +63,12 @@ body {
 }
 
 /* La imagen de cabecera */
-.img-head {
-  width: 100%; /* Ocupa todo el ancho para permitir el centrado */
-  margin-top: 0; /* Pegada arriba */
-  line-height: 0; /* Elimina espacios extra debajo */
+.img-head img {
+  width: 50%;
+  max-width: 600px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 .img-head img {
@@ -153,15 +154,14 @@ body {
 
 /* ---------- CONTENIDO ---------- */
 .content {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  min-height: 100vh;
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
   opacity: 0;
   transition: opacity 2s ease;
   text-align: center;
-  align-items: center;
   padding: 20px;
 }
 
@@ -206,8 +206,199 @@ body {
   opacity: 1;
 }
 
+.hero {
+  margin-top: 40px;
+}
+
+.hero h1 {
+  font-family: "Great Vibes", cursive;
+  font-size: 64px;
+  margin: 20px 0 5px;
+}
+
+.hero .date,
+.hero .place {
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.countdown {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.countdown div {
+  text-align: center;
+}
+
+.countdown small {
+  display: block;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.countdown span {
+  display: inline-block;
+  min-width: 40px;
+  font-size: 36px;
+  font-weight: bold;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.countdown span.change {
+  transform: translateY(-10px);
+  opacity: 0.5;
+}
+
+.map iframe {
+  width: 100%;
+  height: 300px;
+  border-radius: 16px;
+  border: none;
+}
+
+.timeline {
+  list-style: none;
+  padding: 0;
+  font-size: 18px;
+}
+
+.timeline li {
+  margin: 15px 0;
+}
+
+.rsvp {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+  margin: auto;
+}
+
+.rsvp input,
+.rsvp select,
+.rsvp textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+}
+
+.rsvp button {
+  padding: 12px;
+  border: none;
+  border-radius: 30px;
+  background: #c8aa96;
+  color: white;
+  font-size: 16px;
+}
+
+.bus {
+  list-style: none;
+  padding: 0;
+  font-size: 18px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.intro.fade-out {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.5s ease;
+}
+
+/* Importamos la fuente elegante desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+
+.fecha-elegante {
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    color: #333333; /* Color del texto (gris oscuro casi negro) */
+    width: fit-content;
+    margin: 0 auto; /* Para centrar el bloque en la página */
+    padding: 20px;
+}
+
+.fecha-elegante .mes {
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    color: #4a4a4a;
+}
+
+.fecha-elegante .centro {
+    display: flex;
+    align-items: center; /* Alinea verticalmente al centro */
+    justify-content: center;
+    gap: 15px; /* Espacio entre el texto y el número grande */
+}
+
+.fecha-elegante .numero {
+    font-size: 5rem; /* Tamaño grande para el 15 */
+    line-height: 1;
+    font-weight: 400;
+}
+
+.fecha-elegante .lateral {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 0; /* Espacio vertical entre texto y líneas */
+    min-width: 120px; /* Ancho mínimo para que las líneas se vean iguales */
+}
+
+/* Estilo específico para las líneas superior e inferior */
+.fecha-elegante .bordeado {
+    border-top: 1px solid #C4A484;    /* Color dorado suave */
+    border-bottom: 1px solid #C4A484; /* Color dorado suave */
+}
+
+.fecha-elegante .anio {
+    font-size: 1.5rem;
+    margin-top: 5px;
+    color: #4a4a4a;
+}
+
 @media (max-width: 600px) {
   .content h1 {
     font-size: 48px;
   }
+  .img-head img {
+    width: 100%;
+    max-width: none;
+  }
+
+  .fecha-elegante .centro {
+        gap: 10px;
+    }
+    .fecha-elegante .lateral {
+        font-size: 1rem;
+        min-width: 80px;
+    }
+    .fecha-elegante .numero {
+        font-size: 3.5rem;
+    }
 }
