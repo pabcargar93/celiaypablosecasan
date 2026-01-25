@@ -13,6 +13,11 @@
       rel="stylesheet"
     />
 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/images/sello-2.png" />
   </head>
@@ -56,7 +61,7 @@
         </div>
         <div class="nombres">
           <h1>Celia</h1>
-          <h2>  &  </h2>
+          <h2>&</h2>
           <h1>Pablo</h1>
         </div>
         <div class="fecha-elegante">
@@ -73,36 +78,24 @@
         <p class="place">Arcos de la Frontera</p>
       </header>
 
-      <!-- CUENTA ATRÁS -->
       <section class="section">
         <h2 class="title-section">CELEBRACIÓN</h2>
 
-        <div class="countdown" id="countdown">
-          <div><span id="days">0</span><small>Días</small></div>
-          <div><span id="hours">0</span><small>Horas</small></div>
-          <div><span id="minutes">0</span><small>Min</small></div>
-          <div><span id="seconds">0</span><small>Seg</small></div>
-        </div>
-
-        <p class="section-text">
-          Cada día queda un poco menos para celebrar juntos uno de los días más
-          importantes de nuestras vidas.
-        </p>
-      </section>
-
-      <!-- MAPA -->
-      <section class="section alt">
-        <h2>Ubicación</h2>
-
-        <p class="section-text">Arcos de la Frontera, Cádiz</p>
-
+        <h4>
+          <i class="fas fa-map-marker-alt location-icon"></i>Finca El Sotillo
+          Viejo, Arcos de la Fra.
+        </h4>
+        <p>Cádiz</p>
         <div class="map">
           <iframe
-            src="https://www.google.com/maps?q=Arcos%20de%20la%20Frontera&output=embed"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3200.3456683688673!2d-5.8530105!3d36.6661891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0da5a6beb77ccb%3A0x2a2fe8349afdb99d!2sFinca%20El%20Sotillo%20Viejo!5e0!3m2!1ses!2ses!4v1769362912112!5m2!1ses!2ses"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-          >
-          </iframe>
+          ></iframe>
         </div>
       </section>
 
@@ -111,10 +104,60 @@
         <h2>Itinerario</h2>
 
         <ul class="timeline">
-          <li><strong>12:30</strong> · Ceremonia</li>
-          <li><strong>14:00</strong> · Cóctel</li>
-          <li><strong>15:30</strong> · Banquete</li>
-          <li><strong>18:30</strong> · Fiesta</li>
+          <li>
+            <div class="img-event">
+              <img src="assets/images/bus.png" alt="Ceremonia" />
+            </div>
+            <div class="info-event">
+              <span class="time">12:30</span>
+              <span class="event">Salida autobús</span>
+            </div>
+          </li>
+          <li>
+            <div class="img-event">
+              <img src="assets/images/anillos.png" alt="Ceremonia" />
+            </div>
+            <div class="info-event">
+              <span class="time">13:00</span>
+              <span class="event">Ceremonia</span>
+            </div>
+          </li>
+          <li>
+            <div class="img-event">
+              <img src="assets/images/copas.png" alt="Ceremonia" />
+            </div>
+            <div class="info-event">
+              <span class="time">14:00</span>
+              <span class="event">Aperitivo</span>
+            </div>
+          </li>
+          <li>
+            <div class="img-event">
+              <img src="assets/images/plato.png" alt="Ceremonia" />
+            </div>
+            <div class="info-event">
+              <span class="time">16:00</span>
+              <span class="event">Banquete</span>
+            </div>
+          </li>
+          <li>
+            <div class="img-event">
+              <img src="assets/images/musica.png" alt="Ceremonia" />
+            </div>
+            <div class="info-event">
+              <span class="time">19:00</span>
+              <span class="event">Fiesta</span>
+            </div>
+          </li>
+          <li>
+            <div class="img-event">
+              <img src="assets/images/fin.png" alt="Ceremonia" />
+            </div>
+            <div class="info-event">
+              <span class="time">03:00</span>
+              <span class="event">Recogida autobús</span>
+            </div>
+          </li>
         </ul>
       </section>
 
@@ -146,6 +189,22 @@
           <li>📍 Parada 1 – Centro</li>
           <li>📍 Parada 2 – Hotel</li>
         </ul>
+      </section>
+
+      <!-- CUENTA ATRÁS -->
+      <section class="section">
+        <h2 class="title-section">Os esperamos en...</h2>
+
+        <div class="countdown" id="countdown">
+          <div><span id="days">0</span><small>Días</small></div>
+          <div><span id="hours">0</span><small>Horas</small></div>
+          <div><span id="minutes">0</span><small>Min</small></div>
+        </div>
+
+        <p class="section-text">
+          Cada día queda un poco menos para celebrar juntos uno de los días más
+          importantes de nuestras vidas.
+        </p>
       </section>
 
       <!-- ÁLBUM -->
@@ -208,7 +267,6 @@
           days: Math.floor(diff / (1000 * 60 * 60 * 24)),
           hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
           minutes: Math.floor((diff / 1000 / 60) % 60),
-          seconds: Math.floor((diff / 1000) % 60),
         };
 
         Object.keys(values).forEach((id) => {

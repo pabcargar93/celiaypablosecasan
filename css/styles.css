@@ -191,12 +191,24 @@ body {
 .hero h1 {
   font-family: "Great Vibes";
   font-size: 64px;
-  margin: 20px 0 5px;
+  margin: 10px 0 5px;
 }
 .hero .place {
   font-size: 18px;
   letter-spacing: 1px;
+  margin-top: 5px;
+  font-family: "Playfair Display", serif;
 }
+
+.location-icon {
+  color: #b8860b; /* dorado oscuro */
+  margin-right: 8px; /* espacio entre el icono y el texto */
+}
+
+.img-event img {
+  width: 35px;
+}
+
 
 /* --------------------------------------
    FECHA ELEGANTE
@@ -209,7 +221,6 @@ body {
   color: #333;
   width: fit-content;
   margin: 0 auto;
-  padding: 20px;
 }
 .fecha-elegante .mes {
   text-transform: uppercase;
