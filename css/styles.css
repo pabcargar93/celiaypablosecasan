@@ -1,14 +1,21 @@
+/* --------------------------------------
+   GENERAL
+-------------------------------------- */
 * {
   box-sizing: border-box;
 }
+
 body {
   margin: 0;
   min-height: 100vh;
   background: radial-gradient(circle at top, #f7f4ef, #ece6dc);
   font-family: "Playfair Display", serif;
   overflow-x: hidden;
+}
 
-/* ---------- INTRO ---------- */
+/* --------------------------------------
+   INTRO (SOBRE)
+-------------------------------------- */
 .intro {
   position: fixed;
   inset: 0;
@@ -17,6 +24,12 @@ body {
   align-items: center;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");
   z-index: 10;
+  transition: opacity 1.5s ease;
+}
+
+.intro.fade-out {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .hint {
@@ -32,14 +45,13 @@ body {
   pointer-events: none;
 }
 
-/* ---------- SOBRE ---------- */
+/* Sobre */
 .envelope {
   position: relative;
   cursor: pointer;
   perspective: 800px;
   width: 250px;
 }
-
 .envelope img {
   width: 100%;
   display: block;
@@ -54,50 +66,26 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("../assets/images/solapasuperior.png") center / cover
-    no-repeat;
+  background: url("../assets/images/solapasuperior.png") center / cover no-repeat;
   transform-origin: top center;
   transition: transform 1.4s ease;
   z-index: 5;
-  filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.1));
+  filter: drop-shadow(0 3px 3px rgba(0,0,0,0.1));
 }
 
-/* La imagen de cabecera */
-.img-head img {
-  width: 50%;
-  max-width: 600px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-.img-head img {
-  width: 50%;        /* Tu ancho deseado */
-  height: auto;
-  display: block;    /* Importante para eliminar espacios y permitir márgenes */
-  margin: 0 auto;    /* ESTO ES LO QUE LA CENTRA HORIZONTALMENTE */
-}
-
-/* Sello centrado */
+/* Sello */
 .seal {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -25%);
   z-index: 6;
-  width: 25%; /* proporcional al sobre */
+  width: 25%;
   height: auto;
-  background: none; /* ¡SIN fondo! */
-  box-shadow: none; /* eliminar sombra si hubiera */
-  padding: 0; /* quitar padding que genere fondo */
-  margin: 0;
 }
-
 .seal img {
   width: 100%;
-  height: auto;
   display: block;
-  background: none; /* asegurar que la imagen no tenga fondo */
 }
 
 /* Tarjeta */
@@ -112,133 +100,156 @@ body {
   text-align: center;
   transform: translate(-50%, -50%) rotateX(-90deg);
   opacity: 0;
-  transition:
-    transform 1s ease,
-    opacity 1s ease;
+  transition: transform 1s ease, opacity 1s ease;
   z-index: 7;
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.2);
 }
-
 .card h2 {
   font-family: "Great Vibes", cursive;
   font-size: 28px;
   margin: 10px 0;
 }
-
 .card p {
   margin: 5px 0;
   font-size: 14px;
 }
-
 .card-photo {
   width: 100%;
   border-radius: 6px;
   margin-bottom: 10px;
 }
 
-/* Estado abierto del sobre */
+/* Animaciones del sobre */
 .envelope.open .flap {
   transform: rotateX(180deg);
 }
-
 .envelope.open .seal {
   opacity: 0;
   transform: translate(-50%, -50%) scale(0.8);
 }
-
-/* Mostrar tarjeta */
 .envelope.show-card .card {
-  transform: translate(-50%, -120%) rotateX(0deg);
+  transform: translate(-50%, -50%) rotateX(0deg);
   opacity: 1;
 }
 
-/* ---------- CONTENIDO ---------- */
+/* --------------------------------------
+   CONTENIDO
+-------------------------------------- */
 .content {
   position: relative;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  opacity: 0;
-  transition: opacity 2s ease;
   text-align: center;
   padding: 20px;
+  opacity: 0;
+  transition: opacity 1.5s ease;
 }
-
 .content.show {
   opacity: 1;
 }
 
-.content h1 {
-  font-family: "Great Vibes", cursive;
-  font-size: 64px;
-  margin: 0;
-}
-
-.content p {
-  margin-top: 10px;
-  font-size: 18px;
-  letter-spacing: 1px;
-}
-
-.watercolor {
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(
-    circle at center,
-    rgba(200, 170, 150, 0.25),
-    transparent 70%
-  );
-  filter: blur(40px);
-  z-index: -1;
-}
-
-.seal,
-.seal img {
-  box-shadow: none;
-  filter: none;
-  background: none;
-}
-
-.envelope.show-card .card {
-  transform: translate(-50%, -50%) rotateX(0deg);
-  opacity: 1;
-}
-
+/* Hero / Cabecera */
 .hero {
   margin-top: 40px;
 }
-
+.hero .img-head img {
+  width: 50%;
+  max-width: 600px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
 .hero h1 {
   font-family: "Great Vibes", cursive;
   font-size: 64px;
   margin: 20px 0 5px;
 }
-
-.hero .date,
 .hero .place {
   font-size: 18px;
   letter-spacing: 1px;
 }
 
+/* --------------------------------------
+   FECHA ELEGANTE
+-------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+
+.fecha-elegante {
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+  color: #333;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 20px;
+}
+.fecha-elegante .mes {
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+  color: #4a4a4a;
+}
+.fecha-elegante .centro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+.fecha-elegante .numero {
+  font-size: 5rem;
+  line-height: 1;
+  font-weight: 400;
+}
+.fecha-elegante .lateral {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 8px 0;
+  min-width: 120px;
+}
+.fecha-elegante .bordeado {
+  border-top: 1px solid #C4A484;
+  border-bottom: 1px solid #C4A484;
+}
+.fecha-elegante .anio {
+  font-size: 1.5rem;
+  margin-top: 5px;
+  color: #4a4a4a;
+}
+
+/* --------------------------------------
+   SECCIONES
+-------------------------------------- */
+.section {
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  margin: 40px 0;
+  width: 100%;
+  max-width: 900px;
+}
+.section.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Countdown */
 .countdown {
   display: flex;
   gap: 20px;
   justify-content: center;
   margin: 30px 0;
 }
-
 .countdown div {
   text-align: center;
 }
-
 .countdown small {
   display: block;
   font-size: 12px;
   opacity: 0.7;
 }
-
 .countdown span {
   display: inline-block;
   min-width: 40px;
@@ -246,12 +257,12 @@ body {
   font-weight: bold;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
-
 .countdown span.change {
   transform: translateY(-10px);
   opacity: 0.5;
 }
 
+/* Map */
 .map iframe {
   width: 100%;
   height: 300px;
@@ -259,16 +270,17 @@ body {
   border: none;
 }
 
+/* Timeline / Itinerario */
 .timeline {
   list-style: none;
   padding: 0;
   font-size: 18px;
 }
-
 .timeline li {
   margin: 15px 0;
 }
 
+/* RSVP */
 .rsvp {
   display: flex;
   flex-direction: column;
@@ -276,7 +288,6 @@ body {
   max-width: 400px;
   margin: auto;
 }
-
 .rsvp input,
 .rsvp select,
 .rsvp textarea {
@@ -285,7 +296,6 @@ body {
   border: 1px solid #ccc;
   font-family: inherit;
 }
-
 .rsvp button {
   padding: 12px;
   border: none;
@@ -295,93 +305,52 @@ body {
   font-size: 16px;
 }
 
+/* Bus */
 .bus {
   list-style: none;
   padding: 0;
   font-size: 18px;
 }
 
+/* Galería */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 10px;
 }
-
 .gallery img {
   width: 100%;
   border-radius: 12px;
 }
 
-.section {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+/* Botón álbum */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 30px;
+  background: #c8aa96;
+  color: white;
+  text-decoration: none;
+  margin-top: 15px;
+  transition: background 0.3s ease;
+}
+.btn:hover {
+  background: #b89278;
 }
 
-.section.visible {
-  opacity: 1;
-  transform: translateY(0);
+/* Música input */
+.music-input {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  max-width: 400px;
+  margin: auto;
+  display: block;
 }
 
-.intro.fade-out {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 1.5s ease;
-}
-
-/* Importamos la fuente elegante desde Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
-
-.fecha-elegante {
-    font-family: 'Playfair Display', serif;
-    text-align: center;
-    color: #333333; /* Color del texto (gris oscuro casi negro) */
-    width: fit-content;
-    margin: 0 auto; /* Para centrar el bloque en la página */
-    padding: 20px;
-}
-
-.fecha-elegante .mes {
-    text-transform: uppercase;
-    font-size: 1.8rem;
-    letter-spacing: 2px;
-    margin-bottom: 5px;
-    color: #4a4a4a;
-}
-
-.fecha-elegante .centro {
-    display: flex;
-    align-items: center; /* Alinea verticalmente al centro */
-    justify-content: center;
-    gap: 15px; /* Espacio entre el texto y el número grande */
-}
-
-.fecha-elegante .numero {
-    font-size: 5rem; /* Tamaño grande para el 15 */
-    line-height: 1;
-    font-weight: 400;
-}
-
-.fecha-elegante .lateral {
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 8px 0; /* Espacio vertical entre texto y líneas */
-    min-width: 120px; /* Ancho mínimo para que las líneas se vean iguales */
-}
-
-/* Estilo específico para las líneas superior e inferior */
-.fecha-elegante .bordeado {
-    border-top: 1px solid #C4A484;    /* Color dorado suave */
-    border-bottom: 1px solid #C4A484; /* Color dorado suave */
-}
-
-.fecha-elegante .anio {
-    font-size: 1.5rem;
-    margin-top: 5px;
-    color: #4a4a4a;
-}
-
+/* --------------------------------------
+   RESPONSIVE
+-------------------------------------- */
 @media (max-width: 600px) {
   .content h1 {
     font-size: 48px;
@@ -390,15 +359,14 @@ body {
     width: 100%;
     max-width: none;
   }
-
   .fecha-elegante .centro {
-        gap: 10px;
-    }
-    .fecha-elegante .lateral {
-        font-size: 1rem;
-        min-width: 80px;
-    }
-    .fecha-elegante .numero {
-        font-size: 3.5rem;
-    }
+    gap: 10px;
+  }
+  .fecha-elegante .lateral {
+    font-size: 1rem;
+    min-width: 80px;
+  }
+  .fecha-elegante .numero {
+    font-size: 3.5rem;
+  }
 }

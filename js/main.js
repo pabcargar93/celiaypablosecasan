@@ -9,39 +9,45 @@ const targetDate = new Date("2026-10-03T13:00:00").getTime();
 function updateCountdown() {
   const now = new Date().getTime();
   const diff = targetDate - now;
-  if(diff <= 0) return;
+  if (diff <= 0) return;
 
   const values = {
-    days: Math.floor(diff/(1000*60*60*24)),
-    hours: Math.floor((diff/(1000*60*60))%24),
-    minutes: Math.floor((diff/1000/60)%60),
-    seconds: Math.floor((diff/1000)%60)
+    days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+    hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+    minutes: Math.floor((diff / 1000 / 60) % 60),
+    seconds: Math.floor((diff / 1000) % 60),
   };
 
-  Object.keys(values).forEach(id => {
+  Object.keys(values).forEach((id) => {
     const el = document.getElementById(id);
-    if(el.textContent !== String(values[id])){
+    if (el.textContent !== String(values[id])) {
       el.classList.add("change");
-      setTimeout(()=>{ el.textContent = values[id]; el.classList.remove("change"); },150);
+      setTimeout(() => {
+        el.textContent = values[id];
+        el.classList.remove("change");
+      }, 150);
     }
   });
 }
 
 updateCountdown();
-setInterval(updateCountdown,1000);
+setInterval(updateCountdown, 1000);
 
 // ANIMACIÓN SECCIONES
-function initScrollAnimations(){
+function initScrollAnimations() {
   const sections = document.querySelectorAll(".section");
-  const observer = new IntersectionObserver((entries, obs)=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        entry.target.classList.add("visible");
-        obs.unobserve(entry.target);
-      }
-    });
-  }, {threshold:0.15});
-  sections.forEach(section=>observer.observe(section));
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+  sections.forEach((section) => observer.observe(section));
 }
 
 // CLICK SOBRE
@@ -52,15 +58,13 @@ envelope.addEventListener("click", () => {
 
   intro.classList.add("fade-out");
 
-  setTimeout(()=>{
-    intro.style.display="none";
+  setTimeout(() => {
+    intro.style.display = "none";
     content.classList.add("show");
-    document.body.style.overflowY = "auto";
+    document.body.style.overflowY = "auto"; // activar scroll
+    window.scrollTo({ top: 0, behavior: "smooth" });
 
-    // Forzar scroll arriba
-    requestAnimationFrame(()=>window.scrollTo(0,0));
-
-    // Activar animaciones de secciones
-    setTimeout(()=>initScrollAnimations(),100);
-  },1500);
+    // Llamamos al observer **una vez** tras un pequeño delay
+    setTimeout(() => initScrollAnimations(), 50);
+  }, 1500);
 });
