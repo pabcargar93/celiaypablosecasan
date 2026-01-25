@@ -25,6 +25,7 @@ body {
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");
   z-index: 10;
   transition: opacity 1.5s ease;
+  flex-direction: column;
 }
 
 .intro.fade-out {
@@ -33,11 +34,11 @@ body {
 }
 
 .hint {
-  position: absolute;
-  bottom: 12%;
-  font-size: 14px;
+  font-size: 24px;
   letter-spacing: 1px;
   opacity: 0.6;
+  margin-top: 15px;
+  text-align: center;
   transition: opacity 0.6s ease;
 }
 .hint.hide {
@@ -50,9 +51,16 @@ body {
   position: relative;
   cursor: pointer;
   perspective: 800px;
-  width: 250px;
+  width: 75%;
+  max-width: 500px;
 }
 .envelope img {
+  width: 100%;
+  display: block;
+  border-radius: 6px;
+}
+
+.envelope-img {
   width: 100%;
   display: block;
   border-radius: 6px;
@@ -66,11 +74,12 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("../assets/images/solapasuperior.png") center / cover no-repeat;
+  background: url("../assets/images/solapasuperior.png") center / cover
+    no-repeat;
   transform-origin: top center;
   transition: transform 1.4s ease;
   z-index: 5;
-  filter: drop-shadow(0 3px 3px rgba(0,0,0,0.1));
+  filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.1));
 }
 
 /* Sello */
@@ -100,9 +109,11 @@ body {
   text-align: center;
   transform: translate(-50%, -50%) rotateX(-90deg);
   opacity: 0;
-  transition: transform 1s ease, opacity 1s ease;
+  transition:
+    transform 1s ease,
+    opacity 1s ease;
   z-index: 7;
-  box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
 }
 .card h2 {
   font-family: "Great Vibes", cursive;
@@ -150,10 +161,26 @@ body {
   opacity: 1;
 }
 
-/* Hero / Cabecera */
-.hero {
-  margin-top: 40px;
+.nombres {
+  display: flex;
+  align-items: center; /* Alinea verticalmente */
+  justify-content: center; /* Centra horizontalmente */
+  gap: 10px; /* Espacio entre los nombres y el "&" */
 }
+
+.nombres h1 {
+  font-family: "Great Vibes", cursive;
+  font-size: 3rem;
+  margin: 0;
+}
+
+.nombres h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+/* Hero / Cabecera */
 .hero .img-head img {
   width: 50%;
   max-width: 600px;
@@ -162,7 +189,7 @@ body {
   margin: 0 auto;
 }
 .hero h1 {
-  font-family: "Great Vibes", cursive;
+  font-family: "Great Vibes";
   font-size: 64px;
   margin: 20px 0 5px;
 }
@@ -174,10 +201,10 @@ body {
 /* --------------------------------------
    FECHA ELEGANTE
 -------------------------------------- */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap");
 
 .fecha-elegante {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   text-align: center;
   color: #333;
   width: fit-content;
@@ -210,8 +237,8 @@ body {
   min-width: 120px;
 }
 .fecha-elegante .bordeado {
-  border-top: 1px solid #C4A484;
-  border-bottom: 1px solid #C4A484;
+  border-top: 1px solid #c4a484;
+  border-bottom: 1px solid #c4a484;
 }
 .fecha-elegante .anio {
   font-size: 1.5rem;
@@ -225,7 +252,9 @@ body {
 .section {
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
 }
 .section.visible {
   opacity: 1;
@@ -252,7 +281,9 @@ body {
   min-width: 40px;
   font-size: 36px;
   font-weight: bold;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
 }
 .countdown span.change {
   transform: translateY(-10px);
@@ -365,5 +396,18 @@ body {
   }
   .fecha-elegante .numero {
     font-size: 3.5rem;
+  }
+  .envelope {
+    width: 90%;
+  }
+  .hint {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  .hero .img-head img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
   }
 }

@@ -21,7 +21,11 @@
     <!-- INTRO -->
     <div class="intro" id="intro">
       <div class="envelope" id="envelope">
-        <img src="assets/images/sin-solapa.png" alt="Sobre de boda" />
+        <img
+          class="envelope-img"
+          src="assets/images/sin-solapa.png"
+          alt="Sobre de boda"
+        />
         <div class="flap"></div>
         <!-- Sello centrado -->
         <div class="seal">
@@ -29,17 +33,18 @@
         </div>
         <!-- Tarjeta -->
         <div class="card" id="card">
+          <h2>Celia & Pablo</h2>
           <img
             src="assets/images/foto-tarjeta.jpeg"
             alt="Foto"
             class="card-photo"
           />
-          <h2>¡Nos casamos!</h2>
+          <h4>¡Nos casamos!</h4>
           <p>3 · Octubre · 2026</p>
           <p>Arcos de la Frontera</p>
         </div>
       </div>
-      <div class="hint">Haz clic para abrir</div>
+      <div class="hint">Haz clic en el sobre para abrir</div>
     </div>
 
     <!-- CONTENIDO -->
@@ -49,7 +54,11 @@
         <div class="img-head">
           <img src="assets/images/cabecera.png" alt="Celia y Pablo" />
         </div>
-        <h1>Celia & Pablo</h1>
+        <div class="nombres">
+          <h1>Celia</h1>
+          <h2>  &  </h2>
+          <h1>Pablo</h1>
+        </div>
         <div class="fecha-elegante">
           <div class="mes">OCTUBRE</div>
 
@@ -252,11 +261,9 @@
             document.body.style.overflowY = "auto";
             window.scrollTo({ top: 0, behavior: "smooth" });
             initScrollAnimations();
-
           }, 4000);
         }, 900); // coincide con duración flap
       });
-
     </script>
   </body>
 </html>
