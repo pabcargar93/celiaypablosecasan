@@ -626,6 +626,7 @@ body {
   .asistencia {
     padding-top: 20px;
     padding-bottom: 10px;
+    border-radius: 20px;
   }
 
   /* Ocultar la flor 4 */
@@ -663,7 +664,7 @@ body {
   .section .itinerary {
     width: 100%;
   }
-  .section img{
+  .section img {
     width: 100%;
   }
 }
