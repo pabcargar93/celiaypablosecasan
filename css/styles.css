@@ -435,6 +435,11 @@ body {
     opacity 0.8s ease,
     transform 0.8s ease;
 }
+
+.section .itinerary {
+  width: 50%;
+}
+
 .section.visible {
   opacity: 1;
   transform: translateY(0);
@@ -557,10 +562,10 @@ body {
 
 /* Itinerario */
 .itinerary {
-  background: rgba(255, 255, 255, 0.65);
+  background: #fcfaf3;
   backdrop-filter: blur(6px);
   border-radius: 20px;
-  padding: 40px 20px;
+  padding: 10px 50px;
   margin: 40px auto;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
   max-width: 800px;
@@ -653,5 +658,12 @@ body {
   .asistencia .f6 {
     left: 90%;
     width: 100px;
+  }
+
+  .section .itinerary {
+    width: 100%;
+  }
+  .section img{
+    width: 100%;
   }
 }
