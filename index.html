@@ -102,7 +102,7 @@
 
       <!-- ITINERARIO -->
       <section class="section itinerary">
-        <img src="assets/images/itinerario.png" width="100%"/>
+        <img src="assets/images/itinerario.png" width="100%" />
       </section>
 
       <!-- ASISTENCIA -->
@@ -218,11 +218,20 @@
     <!-- MÚSICA -->
     <audio id="music" src="assets/audio/audio.mp3" preload="auto"></audio>
 
+    <div
+      id="music-toggle"
+      class="music-toggle paused hidden"
+      title="Reproducir música"
+    >
+      <i class="fas fa-volume-mute"></i>
+    </div>
+
     <script>
       const envelope = document.getElementById("envelope");
       const intro = document.getElementById("intro");
       const content = document.getElementById("content");
-      const music = document.getElementById("music");
+      const musicToggle = document.getElementById("music-toggle");
+      const musicIcon = musicToggle.querySelector("i");
       const hint = document.querySelector(".hint");
 
       // CONTADOR
@@ -278,6 +287,14 @@
         music.volume = 0.5;
         music.play();
 
+        musicToggle.classList.remove("hidden");
+        musicToggle.classList.add("visible");
+
+        musicToggle.classList.remove("paused");
+        musicToggle.classList.add("playing");
+        musicIcon.className = "fas fa-volume-up";
+        musicToggle.title = "Pausar música";
+
         // Mostrar tarjeta después de abrir solapa
         setTimeout(() => {
           envelope.classList.add("show-card");
@@ -291,6 +308,22 @@
             initScrollAnimations();
           }, 4000);
         }, 900); // coincide con duración flap
+      });
+
+      musicToggle.addEventListener("click", () => {
+        if (music.paused) {
+          music.play();
+          musicToggle.classList.remove("paused");
+          musicToggle.classList.add("playing");
+          musicIcon.className = "fas fa-volume-up";
+          musicToggle.title = "Pausar música";
+        } else {
+          music.pause();
+          musicToggle.classList.remove("playing");
+          musicToggle.classList.add("paused");
+          musicIcon.className = "fas fa-volume-mute";
+          musicToggle.title = "Reanudar música";
+        }
       });
     </script>
   </body>

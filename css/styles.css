@@ -579,6 +579,70 @@ body {
 }
 
 /* --------------------------------------
+   BOTÓN MÚSICA FLOTANTE
+-------------------------------------- */
+.music-toggle {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 9999;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.music-toggle i {
+  font-size: 20px;
+  color: #4b6f6a;
+}
+
+.music-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
+}
+
+.music-toggle.paused {
+  opacity: 0.55;
+}
+
+.music-toggle.playing {
+  opacity: 1;
+}
+
+/* Botón música oculto hasta abrir el sobre */
+.music-toggle {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.8);
+}
+
+/* Se muestra cuando se abre el sobre */
+.music-toggle.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+/* Oculto completamente hasta abrir el sobre */
+.music-toggle.hidden {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: scale(0.7);
+}
+
+
+/* --------------------------------------
    RESPONSIVE
 -------------------------------------- */
 @media (max-width: 600px) {
@@ -666,5 +730,16 @@ body {
   }
   .section img {
     width: 100%;
+  }
+
+  .music-toggle {
+    width: 46px;
+    height: 46px;
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .music-toggle i {
+    font-size: 18px;
   }
 }
